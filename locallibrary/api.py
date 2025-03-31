@@ -103,7 +103,7 @@ def create_language(request, data: LanguageCreateSchema):
     return language
 
 
-@api.put("/languages/{language_id}", response=LanguageSchema)
+@api.put("/languages/{language_id}", response=LanguageSchema, auth=None)
 def update_language(request, language_id: int, data: LanguageCreateSchema):
     language = get_object_or_404(Language, id=language_id)
     language.name = data.name
